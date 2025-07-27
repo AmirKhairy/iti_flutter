@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iti_tasks/day11/task2.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iti_tasks/day12/cubit/tasks_cubit.dart';
+import 'package:iti_tasks/day12/tasks_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +13,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Day11Task2());
+    return BlocProvider(
+      create: (context) => TasksCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Day12TasksScreen(),
+      ),
+    );
   }
 }
