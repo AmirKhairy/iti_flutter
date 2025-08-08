@@ -29,6 +29,7 @@ class MovieDetailsTopSection extends StatelessWidget {
         Positioned(
           bottom: 10,
           left: 16,
+          right: 16,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -50,47 +51,52 @@ class MovieDetailsTopSection extends StatelessWidget {
               const SizedBox(width: 12),
 
               // Movie title and rating
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${movie?.title}',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${movie?.title}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF242a32),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          size: 16,
-                          color: Color(0xFFf38304),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          '${movie?.voteAverage}',
-                          style: const TextStyle(
+                    const SizedBox(height: 8),
+                    Container(
+                      width: 80,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF242a32),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.star,
+                            size: 16,
                             color: Color(0xFFf38304),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 4),
+                          Text(
+                            '${movie?.voteAverage}',
+                            style: const TextStyle(
+                              color: Color(0xFFf38304),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
